@@ -2,6 +2,14 @@ import PropTypes from 'prop-types';
 import css from './FeedbackOptions.module.css';
 
 const FeedbackOptions = ({ options, onLeaveFeedback }) => {
+  const handleMouseDown = event => {
+    event.preventDefault();
+    const active = document.activeElement;
+    if (active instanceof HTMLElement) {
+      active.blur();
+    }
+  };
+
   return (
     <ul className={css['btn-list']}>
       {options.map(option => (
@@ -10,6 +18,7 @@ const FeedbackOptions = ({ options, onLeaveFeedback }) => {
             className={css.btn}
             type="button"
             onClick={() => onLeaveFeedback(option)}
+            onMouseDown={handleMouseDown}
           >
             {option}
           </button>
