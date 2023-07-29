@@ -24,7 +24,7 @@ const App = () => {
     }
   };
   const total = () => good + neutral + bad;
-  const positivePercentage = () => Math.ceil((good / total) * 100);
+  const positivePercentage = () => Math.ceil((good / total()) * 100);
 
   return (
     <>
